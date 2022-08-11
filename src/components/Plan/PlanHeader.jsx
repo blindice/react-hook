@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import https from 'https'
 import { Button, Form, Input, Typography, Row, Col, Sear } from 'antd'
 const { Text, Title } = Typography
 const { Search } = Input
@@ -9,9 +10,13 @@ const PlanHeader = () => {
   const [operatorName, setOperatorname] = useState('')
   const [supplier, setSupplier] = useState('')
 
+  const httpsAgent = new https.Agent({
+    rejectUnauthorized: false, // (NOTE: this will disable client verification)
+  })
+
   const HandleSearch = (value) => {
     axios
-      .get(`${baseUrl}Plan/operatordetails/${value}`)
+      .get(`${baseUrl}Plan/operatordetails/${value}`, { httpsAgent })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err))
   }
