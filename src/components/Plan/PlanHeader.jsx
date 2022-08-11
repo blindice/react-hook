@@ -14,9 +14,17 @@ const PlanHeader = () => {
     rejectUnauthorized: false, // (NOTE: this will disable client verification)
   })
 
+  const client = axios.create({
+    //all axios can be used, shown in axios documentation
+    baseURL: baseUrl,
+    responseType: 'json',
+    withCredentials: true,
+    httpsAgent: httpsAgent,
+  })
+
   const HandleSearch = (value) => {
-    axios
-      .get(`${baseUrl}Plan/operatordetails/${value}`, { httpsAgent })
+    client
+      .get(`assembly/servertime`)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err))
   }
