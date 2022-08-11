@@ -60,7 +60,7 @@ const PlanHeader = () => {
           </Title>
         </Col>
         <Col span={5}>
-          <Input size="medium"></Input>
+          <Input size="medium" readOnly bordered={false}></Input>
         </Col>
         <Col>
           <Title keyboard level={4}>
@@ -68,7 +68,7 @@ const PlanHeader = () => {
           </Title>
         </Col>
         <Col span={5}>
-          <Input size="medium"></Input>
+          <Input size="medium" readOnly bordered={false}></Input>
         </Col>
       </Row>
     </div>
