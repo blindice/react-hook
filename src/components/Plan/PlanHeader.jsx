@@ -18,13 +18,12 @@ const PlanHeader = () => {
     //all axios can be used, shown in axios documentation
     baseURL: baseUrl,
     responseType: 'json',
-    withCredentials: true,
     httpsAgent: httpsAgent,
   })
 
   const HandleSearch = (value) => {
     client
-      .get(`assembly/servertime`)
+      .get(`assembly/operatordetails/${value}`)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err))
   }
